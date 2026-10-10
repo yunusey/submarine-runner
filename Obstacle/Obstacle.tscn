@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bats3iu1rc3pt"]
+
+[ext_resource type="Script" uid="uid://bhpjmhhy8trxy" path="res://Obstacle/Obstacle.gd" id="1_enm7a"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_e4dgc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e4dgc"]
+
+[node name="Obstacle" type="StaticBody3D" unique_id=2080187627]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+script = ExtResource("1_enm7a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1863672046]
+mesh = SubResource("SphereMesh_e4dgc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=704004712]
+shape = SubResource("SphereShape3D_e4dgc")
