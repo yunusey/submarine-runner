@@ -23,6 +23,7 @@ environment = SubResource("Environment_r0du0")
 [node name="Map" parent="." unique_id=2060229778 instance=ExtResource("1_uu6xs")]
 
 [node name="Player" parent="." unique_id=1329401847 instance=ExtResource("1_glv2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, 0)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=596314887]
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=596314887]
 transform = Transform3D(1, 0, 0, 0, 0.92069334, 0.39028683, 0, -0.39028683, 0.92069334, 0, 1.1704329, 2.4597282)

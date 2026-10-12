@@ -17,8 +17,15 @@ config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor]
+
+movie_writer/movie_file="/home/yunusey/Documents/Project Documents/Submarine Runner/obstacle-preview/obstacle-preview-shader.png"
+movie_writer/fps=30
 
 [filesystem]
 
