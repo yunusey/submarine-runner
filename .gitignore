@@ -2,5 +2,9 @@
 .godot/
 /android/
 
+# Nix
+/result
+/.result
+
 # Blender
 **/*.blend1
