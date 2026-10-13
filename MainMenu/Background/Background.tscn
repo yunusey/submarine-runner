@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ixydwys2ek0b"]
+
+[ext_resource type="PackedScene" uid="uid://bvp642erlr21k" path="res://MainMenu/Background/BackgroundSubmarine.tscn" id="2_t5mig"]
+
+[sub_resource type="Environment" id="Environment_e4dgc"]
+background_mode = 1
+background_color = Color(9.62615e-07, 0.37558797, 0.4482932, 1)
+
+[node name="Background" type="Node3D" unique_id=987687772]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1991166864]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 2.8
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=921380346]
+environment = SubResource("Environment_e4dgc")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=344525570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="BackgroundSubmarine" parent="." unique_id=601615461 instance=ExtResource("2_t5mig")]
+
+[node name="BackgroundSubmarine2" parent="." unique_id=1087566212 instance=ExtResource("2_t5mig")]
+transform = Transform3D(-0.47839245, -0.84558296, -0.23691785, 0.68606526, -0.19148757, -0.701888, 0.54813784, -0.4983191, 0.6717313, 0, 0, 0)
