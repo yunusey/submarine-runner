@@ -27,6 +27,9 @@
             ./icon.svg
             ./icon.svg.import
             ./Main.tscn
+            ./Main.gd
+            ./Main.gd.uid
+            ./MainMenu
             ./Map
             ./Models
             ./Obstacle
