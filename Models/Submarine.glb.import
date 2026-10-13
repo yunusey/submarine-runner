@@ -1,15 +1,15 @@
 [remap]
 
-importer="ArrayMesh"
+importer="scene"
 importer_version=1
-type="ArrayMesh"
+type="PackedScene"
 uid="uid://cj5krgmdjllan"
-path="res://.godot/imported/Submarine.glb-2aa043d41c2b0532ae637051c0d54a71.res"
+path="res://.godot/imported/Submarine.glb-2aa043d41c2b0532ae637051c0d54a71.scn"
 
 [deps]
 
 source_file="res://Models/Submarine.glb"
-dest_files=["res://.godot/imported/Submarine.glb-2aa043d41c2b0532ae637051c0d54a71.res"]
+dest_files=["res://.godot/imported/Submarine.glb-2aa043d41c2b0532ae637051c0d54a71.scn"]
 
 [params]
 
@@ -39,7 +39,20 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"Body": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Player/body_material.tres",
+"use_external/path": "uid://b15eh12e6jhmg"
+},
+"Fan": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Player/fan_material.tres",
+"use_external/path": "uid://ci00givcv0s1m"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
 gltf/texture_map_mode=1

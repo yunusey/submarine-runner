@@ -7,9 +7,10 @@ size = Vector2(1, 1)
 size = Vector3(0.001, 1, 1)
 
 [node name="Tunnel" type="Node3D" unique_id=243275246]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 500, 0, 0, 0)
 
-[node name="RightWall" type="StaticBody3D" parent="." unique_id=989927125]
+[node name="RightWall" type="StaticBody3D" parent="." unique_id=989927125 groups=["world"]]
+collision_mask = 6
 
 [node name="Mesh" type="MeshInstance3D" parent="RightWall" unique_id=319662549]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.5, 2.1855694e-08, 0)
@@ -19,8 +20,9 @@ mesh = SubResource("PlaneMesh_eqa87")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4995, 0, 0)
 shape = SubResource("BoxShape3D_eqa87")
 
-[node name="LeftWall" type="StaticBody3D" parent="." unique_id=1340140556]
+[node name="LeftWall" type="StaticBody3D" parent="." unique_id=1340140556 groups=["world"]]
 transform = Transform3D(-1, 1.509958e-07, 0, -1.509958e-07, -1, 0, 0, 0, 1, 0, 0, 0)
+collision_mask = 6
 
 [node name="Mesh" type="MeshInstance3D" parent="LeftWall" unique_id=1263360166]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.5, 2.1855694e-08, 0)
@@ -30,8 +32,9 @@ mesh = SubResource("PlaneMesh_eqa87")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4995, 0, 0)
 shape = SubResource("BoxShape3D_eqa87")
 
-[node name="TopWall" type="StaticBody3D" parent="." unique_id=55973318]
+[node name="TopWall" type="StaticBody3D" parent="." unique_id=55973318 groups=["world"]]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+collision_mask = 6
 
 [node name="Mesh" type="MeshInstance3D" parent="TopWall" unique_id=1485341516]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.5, 2.1855694e-08, 0)
@@ -41,8 +44,9 @@ mesh = SubResource("PlaneMesh_eqa87")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4995, 0, 0)
 shape = SubResource("BoxShape3D_eqa87")
 
-[node name="BottomWall" type="StaticBody3D" parent="." unique_id=143352644]
+[node name="BottomWall" type="StaticBody3D" parent="." unique_id=143352644 groups=["world"]]
 transform = Transform3D(7.54979e-08, 1, 0, -1, 7.54979e-08, 0, 0, 0, 1, 0, 0, 0)
+collision_mask = 6
 
 [node name="Mesh" type="MeshInstance3D" parent="BottomWall" unique_id=976583955]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.5, 2.1855694e-08, 0)

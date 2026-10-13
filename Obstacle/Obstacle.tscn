@@ -92,8 +92,10 @@ shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e4dgc"]
 
-[node name="Obstacle" type="StaticBody3D" unique_id=2080187627]
+[node name="Obstacle" type="StaticBody3D" unique_id=2080187627 groups=["obstacle"]]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_enm7a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1863672046]

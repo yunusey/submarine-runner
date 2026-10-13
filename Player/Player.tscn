@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://db5o4s57pbo8n"]
 
 [ext_resource type="Script" uid="uid://2e0lx8ndiwuq" path="res://Player/Player.gd" id="1_3qydi"]
-[ext_resource type="ArrayMesh" uid="uid://cj5krgmdjllan" path="res://Models/Submarine.glb" id="2_q3lat"]
+[ext_resource type="PackedScene" uid="uid://cj5krgmdjllan" path="res://Models/Submarine.glb" id="2_q3lat"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_q3lat"]
 height = 0.78746873
@@ -10,11 +10,13 @@ radius = 0.389
 [sub_resource type="SphereShape3D" id="SphereShape3D_tok1r"]
 radius = 0.37
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4dgc"]
-albedo_color = Color(0.45963395, 0.34928402, 0.43526587, 1)
-
-[node name="Player" type="CharacterBody3D" unique_id=1329401847]
+[node name="Player" type="CharacterBody3D" unique_id=1329401847 groups=["player"]]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_3qydi")
+
+[node name="Submarine" parent="." unique_id=1302593004 instance=ExtResource("2_q3lat")]
+transform = Transform3D(-1.7222288e-08, 0, 0.394, 0, 0.394, 0, -0.394, 0, -1.7222288e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=683281144]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 6.5392487e-09, 0.39373648)
@@ -24,7 +26,4 @@ shape = SubResource("CylinderShape3D_q3lat")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 4.754254e-09, -0.027203858)
 shape = SubResource("SphereShape3D_tok1r")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1764360541]
-transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_e4dgc")
-mesh = ExtResource("2_q3lat")
+[editable path="Submarine"]
