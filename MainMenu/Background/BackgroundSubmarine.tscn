@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bvp642erlr21k"]
+
+[ext_resource type="Script" uid="uid://b37hkcnsq7fys" path="res://MainMenu/Background/BackgroundSubmarine.gd" id="1_dcpv1"]
+[ext_resource type="PackedScene" uid="uid://cj5krgmdjllan" path="res://Models/Submarine.glb" id="1_lw3ne"]
+
+[sub_resource type="Curve3D" id="Curve3D_t5mig"]
+closed = true
+_data = {
+"points": PackedVector3Array(-1.8362226, -0.98297143, 1.447643, 1.8362226, 0.98297143, -1.447643, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1.2328761, 1.0251797, -1.0449834, 0.114173144, 1.0318371, -0.38134277, -0.114173144, -1.0318371, 0.38134277, -0.0015759766, 0.0012059212, -0.9960214),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[node name="BackgroundSubmarine" type="Path3D" unique_id=601615461]
+curve = SubResource("Curve3D_t5mig")
+script = ExtResource("1_dcpv1")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=1233895011]
+transform = Transform3D(0.61910766, -0.30432892, -0.72392267, 0, 0.921842, -0.38753217, 0.78529006, 0.2399271, 0.5707268, 1, 0, 1)
+
+[node name="Submarine" parent="PathFollow3D" unique_id=1094214665 instance=ExtResource("1_lw3ne")]
+transform = Transform3D(-0.0017263368, 0.13408567, 0.028054737, -0.0035542734, 0.028003667, -0.13406031, -0.13694303, -0.0024171248, 0.003125811, 0, 0, 0)
+
+[editable path="PathFollow3D/Submarine"]

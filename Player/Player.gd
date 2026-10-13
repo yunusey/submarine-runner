@@ -4,6 +4,8 @@ extends CharacterBody3D
 @export var player_speed: float = 10.0
 @export var player_sensitivity: float = 5.0
 
+signal died
+
 
 func _ready() -> void:
     velocity.z = -player_speed
@@ -25,10 +27,16 @@ func _physics_process(delta: float) -> void:
         _on_collision(collision)
 
 
+# NOTE: To make sure that died is emitted one time--to avoid race conditions
+var is_dead: bool = false
 func _on_collision(collision: KinematicCollision3D):
+    if is_dead:
+        return
+
     var collider: Node = collision.get_collider() as Node
     if collider.is_in_group("obstacle"):
-        queue_free()
+        is_dead = true
+        died.emit()
 
 
 func _process(delta: float) -> void:
