@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cpaijovdikbsv"]
 
+[ext_resource type="Material" uid="uid://bkhx8ky6pme7y" path="res://Tunnel/tunnel_material.tres" id="1_8n5ni"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_eqa87"]
+material = ExtResource("1_8n5ni")
 size = Vector2(1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eqa87"]
