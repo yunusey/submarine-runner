@@ -40,7 +40,7 @@ jobs:
       - name: Upload web artifact
         uses: actions/upload-artifact@v4
         with:
-          name: calculus-visualizations-web
+          name: web
           path: artifacts-web/
           if-no-files-found: error
 
@@ -80,7 +80,7 @@ jobs:
       - name: Upload Linux artifact
         uses: actions/upload-artifact@v4
         with:
-          name: calculus-visualizations-linux-x86_64
+          name: linux-x86_64
           path: artifacts-linux/
           if-no-files-found: error
 
