@@ -40,6 +40,11 @@ func update_mesh():
     var bottom_right := Vector3(offset, -offset, 0)
 
     var vertices := PackedVector3Array()
+    var normals := PackedVector3Array()
+    var quad_helper := func (res):
+        vertices.append_array(res["vertices"])
+        normals.append_array(res["normals"])
+    
     for i in range(count):
         var progress_a = i * segment_length
         var progress_b = (i + 1) * segment_length
@@ -47,22 +52,22 @@ func update_mesh():
         var transform_b = curve.sample_baked_with_rotation(progress_b)
         
         # Right face
-        vertices.append_array(_create_quad(
+        quad_helper.call(_create_quad(
             transform_a * top_right, transform_b * top_right,
             transform_b * bottom_right, transform_a * bottom_right
         ))
         # Left face
-        vertices.append_array(_create_quad(
+        quad_helper.call(_create_quad(
             transform_a * top_left, transform_a * bottom_left,
             transform_b * bottom_left, transform_b * top_left
         ))
         # Top face
-        vertices.append_array(_create_quad(
+        quad_helper.call(_create_quad(
             transform_a * top_right, transform_a * top_left,
             transform_b * top_left, transform_b * top_right
         ))
         # Bottom face
-        vertices.append_array(_create_quad(
+        quad_helper.call(_create_quad(
             transform_b * bottom_right, transform_b * bottom_left,
             transform_a * bottom_left, transform_a * bottom_right
         ))
@@ -71,6 +76,7 @@ func update_mesh():
     var arrays = []
     arrays.resize(Mesh.ARRAY_MAX)
     arrays[Mesh.ARRAY_VERTEX] = vertices
+    arrays[Mesh.ARRAY_NORMAL] = normals
     array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
     $MeshInstance3D.mesh = array_mesh
 
@@ -81,7 +87,15 @@ func update_mesh():
 # NOTE: Godot uses clockwise winding order... I found about this after my
 # legendary battle with the engine :D
 func _create_quad(a: Vector3, b: Vector3, c: Vector3, d: Vector3):
-    return [
-        c, b, a,
-        a, d, c
-    ]
+    var normal1 := -(c - b).cross(b - a).normalized()
+    var normal2 := -(a - d).cross(d - c).normalized()
+    return {
+        "vertices": [
+            c, b, a,
+            a, d, c
+        ],
+        "normals": [
+            normal1, normal1, normal1,
+            normal2, normal2, normal2
+        ]
+    }
