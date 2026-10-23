@@ -50,26 +50,36 @@ func update_mesh():
         var progress_b = (i + 1) * segment_length
         var transform_a = curve.sample_baked_with_rotation(progress_a)
         var transform_b = curve.sample_baked_with_rotation(progress_b)
-        
+        var transform_a_r = Transform3D(transform_a.basis, Vector3.ZERO)
+        var transform_b_r = Transform3D(transform_b.basis, Vector3.ZERO)
+
         # Right face
         quad_helper.call(_create_quad(
             transform_a * top_right, transform_b * top_right,
-            transform_b * bottom_right, transform_a * bottom_right
+            transform_b * bottom_right, transform_a * bottom_right,
+            transform_a_r * Vector3.LEFT, transform_b_r * Vector3.LEFT,
+            transform_b_r * Vector3.LEFT, transform_a_r * Vector3.LEFT
         ))
         # Left face
         quad_helper.call(_create_quad(
             transform_a * top_left, transform_a * bottom_left,
-            transform_b * bottom_left, transform_b * top_left
+            transform_b * bottom_left, transform_b * top_left,
+            transform_a_r * Vector3.RIGHT, transform_a_r * Vector3.RIGHT,
+            transform_b_r * Vector3.RIGHT, transform_b_r * Vector3.RIGHT
         ))
         # Top face
         quad_helper.call(_create_quad(
             transform_a * top_right, transform_a * top_left,
-            transform_b * top_left, transform_b * top_right
+            transform_b * top_left, transform_b * top_right,
+            transform_a_r * Vector3.DOWN, transform_a_r * Vector3.DOWN,
+            transform_b_r * Vector3.DOWN, transform_b_r * Vector3.DOWN
         ))
         # Bottom face
         quad_helper.call(_create_quad(
             transform_b * bottom_right, transform_b * bottom_left,
-            transform_a * bottom_left, transform_a * bottom_right
+            transform_a * bottom_left, transform_a * bottom_right,
+            transform_b_r * Vector3.UP, transform_b_r * Vector3.UP,
+            transform_a_r * Vector3.UP, transform_a_r * Vector3.UP
         ))
     
     var array_mesh = ArrayMesh.new()
@@ -86,16 +96,17 @@ func update_mesh():
 # d: bottom-right
 # NOTE: Godot uses clockwise winding order... I found about this after my
 # legendary battle with the engine :D
-func _create_quad(a: Vector3, b: Vector3, c: Vector3, d: Vector3):
-    var normal1 := -(c - b).cross(b - a).normalized()
-    var normal2 := -(a - d).cross(d - c).normalized()
+func _create_quad(
+    a: Vector3, b: Vector3, c: Vector3, d: Vector3,
+    na: Vector3, nb: Vector3, nc: Vector3, nd: Vector3
+):
     return {
         "vertices": [
             c, b, a,
             a, d, c
         ],
         "normals": [
-            normal1, normal1, normal1,
-            normal2, normal2, normal2
+            nc, nb, na,
+            na, nd, nc
         ]
     }
