@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
         velocity.x = move_toward(velocity.x, 0, player_sensitivity)
         velocity.y = move_toward(velocity.y, 0, player_sensitivity)
 
-    move_and_slide()
+    #move_and_slide()
     for i in range(get_slide_collision_count()):
         var collision = get_slide_collision(i)
         _on_collision(collision)
