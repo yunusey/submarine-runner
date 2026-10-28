@@ -11,7 +11,7 @@ var obstacle_scene = preload("res://Obstacle/Obstacle.tscn")
     set(new_padding_length):
         padding_length = new_padding_length
         update_map()
-@export_range(0, 9) var num_obstacles: int = 3:
+@export_range(0, 9) var num_obstacles: int = 4:
     set(new_num_obstacles):
         num_obstacles = new_num_obstacles
         update_map()

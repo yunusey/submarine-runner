@@ -9,6 +9,14 @@ volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0, 0.53592616, 0.89911026, 1)
 volumetric_fog_emission = Color(0.30311507, 0.6391897, 0.7404267, 1)
 
+[sub_resource type="Curve3D" id="Curve3D_r0du0"]
+closed = true
+_data = {
+"points": PackedVector3Array(-3.0210924, -0.19027019, 2.3916755, 3.0210924, 0.19027019, -2.3916755, 3.8859353, -0.2292881, 4.1708584, 0, 0, 0, 0, 0, 0, 2.7198515, 0.70833087, -2.3915167, 1.8016796, 2.8459148, -6.813511, -1.8016796, -2.8459148, 6.813511, -5.422901, -0.34753895, -1.9304416),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
 [node name="Main" type="Node3D" unique_id=1983085931]
 script = ExtResource("1_r0du0")
 
@@ -23,9 +31,9 @@ environment = SubResource("Environment_faiif")
 [node name="Map" parent="." unique_id=2060229778 instance=ExtResource("1_uu6xs")]
 
 [node name="Player" parent="." unique_id=1329401847 instance=ExtResource("1_glv2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, 0)
+curve = SubResource("Curve3D_r0du0")
 
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=596314887]
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=713930482]
 transform = Transform3D(1, 0, 0, 0, 0.92069334, 0.39028683, 0, -0.39028683, 0.92069334, 0, 1.1704329, 2.4597282)
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
