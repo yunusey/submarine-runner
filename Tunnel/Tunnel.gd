@@ -16,7 +16,6 @@ const tunnel_segment = preload("res://Tunnel/TunnelSegment.tscn")
 
 func _ready() -> void:
     update_mesh()
-    pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,9 +44,16 @@ func update_mesh():
         vertices.append_array(res["vertices"])
         normals.append_array(res["normals"])
     
+    var connect_back: bool = curve.closed
     for i in range(count):
         var progress_a = i * segment_length
         var progress_b = (i + 1) * segment_length
+        if i == count - 1:
+            if connect_back:
+                progress_b = 0
+            else:
+                progress_b = length
+
         var transform_a = curve.sample_baked_with_rotation(progress_a)
         var transform_b = curve.sample_baked_with_rotation(progress_b)
         var transform_a_r = Transform3D(transform_a.basis, Vector3.ZERO)
