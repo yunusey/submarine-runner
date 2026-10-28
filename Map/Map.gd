@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
     return
 
 func update_map():
-    if $Tunnel == null:
+    if not has_node("Tunnel"):
         return
     var curve: Curve3D = $Tunnel/Path3D.curve
     var length = curve.get_baked_length()

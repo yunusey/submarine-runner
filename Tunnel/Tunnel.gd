@@ -16,12 +16,11 @@ func _ready() -> void:
     update_mesh()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
     pass
 
 func update_mesh():
-    if $Path3D == null:
+    if not has_node("Path3D"):
         return
 
     var curve: Curve3D = $Path3D.curve
