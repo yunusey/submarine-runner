@@ -12,8 +12,6 @@ extends Node3D
         tunnel_size = new_tunnel_size
         update_mesh()
 
-const tunnel_segment = preload("res://Tunnel/TunnelSegment.tscn")
-
 func _ready() -> void:
     update_mesh()
 

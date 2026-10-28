@@ -1,7 +1,8 @@
 @tool
 extends Node3D
 
-var obstacle_scene = preload("res://Obstacle/Obstacle.tscn")
+const obstacle_scene = preload("res://Obstacle/Obstacle.tscn")
+const light_scene = preload("res://Tunnel/Light.tscn")
 
 @export_range(0, 100, 0.01, "hide_slider") var segment_length: float = 2:
     set(new_segment_length):
@@ -55,6 +56,6 @@ func update_map():
             obstacle.position = curve_transform * Vector3(scaled_pos.x, scaled_pos.y, 0)
             $Obstacles.add_child(obstacle)
 
-        var light = OmniLight3D.new()
+        var light = light_scene.instantiate()
         light.position = curve.sample_baked(curve_pos)
         $Lights.add_child(light)
