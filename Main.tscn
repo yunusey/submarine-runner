@@ -13,11 +13,6 @@ volumetric_fog_emission = Color(0.30311507, 0.6391897, 0.7404267, 1)
 [node name="Main" type="Node3D" unique_id=1983085931]
 script = ExtResource("1_r0du0")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=575838125]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_energy = 2.8
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1055678199]
 environment = SubResource("Environment_faiif")
 
