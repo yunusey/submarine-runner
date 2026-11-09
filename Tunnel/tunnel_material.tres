@@ -1,4 +1,18 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bkhx8ky6pme7y"]
 
+[ext_resource type="Texture2D" uid="uid://cbrfkhxk5je30" path="res://External/marble_rock_02_4k.blend/textures/marble_rock_02_disp_4k.png" id="1_es04d"]
+[ext_resource type="Texture2D" uid="uid://bdotxck1cid6w" path="res://External/marble_rock_02_4k.blend/textures/marble_rock_02_diff_4k.jpg" id="2_cgkn4"]
+[ext_resource type="Texture2D" uid="uid://cfs0nfui0upaa" path="res://External/marble_rock_02_4k.blend/textures/marble_rock_02_rough_4k.png" id="3_7s1ah"]
+[ext_resource type="Texture2D" uid="uid://pbvsgohil6rt" path="res://External/marble_rock_02_4k.blend/textures/marble_rock_02_nor_gl_4k.png" id="4_nor"]
+
 [resource]
-albedo_color = Color(0.11747464, 0.11747465, 0.11747465, 1)
+albedo_texture = ExtResource("2_cgkn4")
+roughness_texture = ExtResource("3_7s1ah")
+normal_enabled = true
+normal_texture = ExtResource("4_nor")
+heightmap_enabled = true
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("1_es04d")
+uv1_scale = Vector3(0.333, 0.333, 0.333)

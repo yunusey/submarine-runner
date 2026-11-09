@@ -35,11 +35,17 @@ func update_mesh():
     var bottom_left := Vector3(-offset, -offset, 0)
     var bottom_right := Vector3(offset, -offset, 0)
 
-    var vertices := PackedVector3Array()
-    var normals := PackedVector3Array()
+    var st := SurfaceTool.new()
+    st.begin(Mesh.PRIMITIVE_TRIANGLES)
+
     var quad_helper := func (res):
-        vertices.append_array(res["vertices"])
-        normals.append_array(res["normals"])
+        # vertices.append_array(res["vertices"])
+        # normals.append_array(res["normals"])
+        # uvs.append_array(res["uvs"])
+        for i in range(6):
+            st.set_normal(res["normals"][i])
+            st.set_uv(res["uvs"][i])
+            st.add_vertex(res["vertices"][i])
     
     var connect_back: bool = curve.closed
     for i in range(count):
@@ -56,42 +62,49 @@ func update_mesh():
         var transform_a_r = Transform3D(transform_a.basis, Vector3.ZERO)
         var transform_b_r = Transform3D(transform_b.basis, Vector3.ZERO)
 
+        var progress_a_ratio = float(i) / count
+        var progress_b_ratio = min(float(i + 1) / count, 1)
+
         # Right face
         quad_helper.call(_create_quad(
             transform_a * top_right, transform_b * top_right,
             transform_b * bottom_right, transform_a * bottom_right,
             transform_a_r * Vector3.LEFT, transform_b_r * Vector3.LEFT,
-            transform_b_r * Vector3.LEFT, transform_a_r * Vector3.LEFT
+            transform_b_r * Vector3.LEFT, transform_a_r * Vector3.LEFT,
+            Vector2(tunnel_size, progress_a), Vector2(tunnel_size, progress_b),
+            Vector2(0, progress_b), Vector2(0, progress_a),
         ))
         # Left face
         quad_helper.call(_create_quad(
             transform_a * top_left, transform_a * bottom_left,
             transform_b * bottom_left, transform_b * top_left,
             transform_a_r * Vector3.RIGHT, transform_a_r * Vector3.RIGHT,
-            transform_b_r * Vector3.RIGHT, transform_b_r * Vector3.RIGHT
+            transform_b_r * Vector3.RIGHT, transform_b_r * Vector3.RIGHT,
+            Vector2(0, progress_a), Vector2(tunnel_size, progress_a),
+            Vector2(tunnel_size, progress_b), Vector2(0, progress_b),
         ))
         # Top face
         quad_helper.call(_create_quad(
             transform_a * top_right, transform_a * top_left,
             transform_b * top_left, transform_b * top_right,
             transform_a_r * Vector3.DOWN, transform_a_r * Vector3.DOWN,
-            transform_b_r * Vector3.DOWN, transform_b_r * Vector3.DOWN
+            transform_b_r * Vector3.DOWN, transform_b_r * Vector3.DOWN,
+            Vector2(tunnel_size, progress_a), Vector2(0, progress_a),
+            Vector2(0, progress_b), Vector2(tunnel_size, progress_b),
         ))
         # Bottom face
         quad_helper.call(_create_quad(
             transform_b * bottom_right, transform_b * bottom_left,
             transform_a * bottom_left, transform_a * bottom_right,
             transform_b_r * Vector3.UP, transform_b_r * Vector3.UP,
-            transform_a_r * Vector3.UP, transform_a_r * Vector3.UP
+            transform_a_r * Vector3.UP, transform_a_r * Vector3.UP,
+            Vector2(tunnel_size, progress_b), Vector2(0, progress_b),
+            Vector2(0, progress_a), Vector2(tunnel_size, progress_a),
         ))
     
-    var array_mesh = ArrayMesh.new()
-    var arrays = []
-    arrays.resize(Mesh.ARRAY_MAX)
-    arrays[Mesh.ARRAY_VERTEX] = vertices
-    arrays[Mesh.ARRAY_NORMAL] = normals
-    array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-    $MeshInstance3D.mesh = array_mesh
+    st.generate_normals()
+    st.generate_tangents()
+    $MeshInstance3D.mesh = st.commit()
 
 # a: top-right
 # b: top-left
@@ -101,7 +114,8 @@ func update_mesh():
 # legendary battle with the engine :D
 func _create_quad(
     a: Vector3, b: Vector3, c: Vector3, d: Vector3,
-    na: Vector3, nb: Vector3, nc: Vector3, nd: Vector3
+    na: Vector3, nb: Vector3, nc: Vector3, nd: Vector3,
+    uva: Vector2, uvb: Vector2, uvc: Vector2, uvd: Vector2
 ):
     return {
         "vertices": [
@@ -111,5 +125,9 @@ func _create_quad(
         "normals": [
             nc, nb, na,
             na, nd, nc
+        ],
+        "uvs": [
+            uvc, uvb, uva,
+            uva, uvd, uvc
         ]
     }
