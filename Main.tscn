@@ -7,10 +7,15 @@
 [ext_resource type="Curve3D" uid="uid://5nb48l8a787f" path="res://Tunnel/Path.tres" id="4_3dxm6"]
 
 [sub_resource type="Environment" id="Environment_faiif"]
+fog_light_color = Color(0.1403062, 0.6485203, 0.7623635, 1)
+fog_depth_curve = 0.11049094
+fog_depth_begin = 0.0
+fog_depth_end = 98.5
 volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0, 0.53592616, 0.89911026, 1)
 volumetric_fog_emission = Color(0.30311507, 0.6391897, 0.7404267, 1)
 volumetric_fog_emission_energy = 0.0
+adjustment_enabled = true
 
 [node name="Main" type="Node3D" unique_id=1983085931]
 script = ExtResource("1_r0du0")

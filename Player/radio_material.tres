@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://m0mqy25ocdwl"]
+
+[ext_resource type="Texture2D" uid="uid://tmapxnx6tgvh" path="res://External/blue_metal_plate_4k.blend/textures/blue_metal_plate_diff_4k.jpg" id="1_q8r4i"]
+[ext_resource type="Texture2D" uid="uid://c7jmqxxxyvu3x" path="res://External/blue_metal_plate_4k.blend/textures/blue_metal_plate_disp_4k.png" id="2_e4wnj"]
+[ext_resource type="Texture2D" uid="uid://kwgo51b6eo7" path="res://External/blue_metal_plate_4k.blend/textures/blue_metal_plate_nor_gl_4k.png" id="3_010ko"]
+[ext_resource type="Texture2D" uid="uid://ko5ry42nhohj" path="res://External/blue_metal_plate_4k.blend/textures/blue_metal_plate_rough_4k.png" id="4_lfn20"]
+
+[resource]
+albedo_texture = ExtResource("1_q8r4i")
+roughness_texture = ExtResource("4_lfn20")
+normal_enabled = true
+normal_texture = ExtResource("3_010ko")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_e4wnj")
