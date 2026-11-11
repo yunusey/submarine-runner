@@ -1,4 +1,15 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://b15eh12e6jhmg"]
 
+[ext_resource type="Texture2D" uid="uid://c7rmgdisp4k2y" path="res://External/rusty_metal_grid_4k.blend/textures/rusty_metal_grid_disp_4k.png" id="2_7ref1"]
+[ext_resource type="Texture2D" uid="uid://c7rmgnorgl4k3" path="res://External/rusty_metal_grid_4k.blend/textures/rusty_metal_grid_nor_gl_4k.png" id="3_tinj0"]
+[ext_resource type="Texture2D" uid="uid://c7rmgrough4k4" path="res://External/rusty_metal_grid_4k.blend/textures/rusty_metal_grid_rough_4k.png" id="4_esp21"]
+
 [resource]
-albedo_color = Color(0.45963395, 0.34928402, 0.43526587, 1)
+albedo_color = Color(0.6010491, 0.4051405, 0.30625224, 1)
+roughness = 0.0
+roughness_texture = ExtResource("4_esp21")
+normal_enabled = true
+normal_texture = ExtResource("3_tinj0")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_7ref1")
+uv1_triplanar = true
