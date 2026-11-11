@@ -6,7 +6,7 @@
 [node name="Map" type="Node3D" unique_id=2060229778]
 script = ExtResource("1_2623n")
 segment_length = 8.0
-padding_length = 10.0
+padding_length = 40.0
 
 [node name="Tunnel" parent="." unique_id=243275246 instance=ExtResource("1_7s3fs")]
 
