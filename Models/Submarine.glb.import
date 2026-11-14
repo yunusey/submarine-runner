@@ -48,8 +48,8 @@ _subresources={
 },
 "Fan": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Player/fan_material.tres",
-"use_external/path": "uid://ci00givcv0s1m"
+"use_external/fallback_path": "res://Player/radio_material.tres",
+"use_external/path": "uid://m0mqy25ocdwl"
 },
 "Radio": {
 "use_external/enabled": true,

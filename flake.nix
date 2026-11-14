@@ -26,9 +26,9 @@
             ./export_presets.cfg
             ./icon.svg
             ./icon.svg.import
-            ./Main.tscn
-            ./Main.gd
-            ./Main.gd.uid
+            ./Camera
+            ./External
+            ./Main
             ./MainMenu
             ./Map
             ./Models

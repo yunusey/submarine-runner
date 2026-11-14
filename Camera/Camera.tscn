@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://b2gu5qesimjlr"]
 
 [ext_resource type="Script" uid="uid://bhprfjts5nr61" path="res://Camera/Camera.gd" id="1_npc1t"]
+[ext_resource type="PackedScene" uid="uid://bjun61q6swwbj" path="res://Camera/QuadMesh.tscn" id="2_88gwk"]
 
 [node name="Camera" type="Camera3D" unique_id=632043938]
 script = ExtResource("1_npc1t")
+
+[node name="QuadMesh" parent="." unique_id=2114339721 instance=ExtResource("2_88gwk")]
