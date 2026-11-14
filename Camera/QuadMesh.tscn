@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bjun61q6swwbj"]
+
+[ext_resource type="Shader" uid="uid://b2fmk51ee77m7" path="res://Camera/QuadMesh.gdshader" id="1_gvyfr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tdx28"]
+render_priority = 0
+shader = ExtResource("1_gvyfr")
+shader_parameter/water_primary_color = Color(0, 0.49803922, 0.69803923, 1)
+shader_parameter/water_secondary_color = Color(2.4065375e-06, 0, 0.71254164, 1)
+shader_parameter/depth_distance = 4.10000006109492
+shader_parameter/beers_law = 1.40000002086168
+shader_parameter/water_transparency = 0.0
+shader_parameter/basic_fresnel = 0.00999999977648
+
+[sub_resource type="QuadMesh" id="QuadMesh_e4dgc"]
+material = SubResource("ShaderMaterial_tdx28")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="QuadMesh" type="Node3D" unique_id=2114339721]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=497603753]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_e4dgc")

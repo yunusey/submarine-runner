@@ -14,7 +14,10 @@ load_path = "res://.godot/imported/rock_04_rough_4k.jpg-9b1fae358e0fdfa41ff000f4
 
 [resource]
 resource_local_to_scene = true
-transparency = 1
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
 albedo_texture = SubResource("CompressedTexture2D_enm7a")
 roughness_texture = SubResource("CompressedTexture2D_l2avp")
 normal_enabled = true

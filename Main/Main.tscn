@@ -1,21 +1,20 @@
 [gd_scene format=3 uid="uid://chnjjvklsi6wc"]
 
 [ext_resource type="PackedScene" uid="uid://db5o4s57pbo8n" path="res://Player/Player.tscn" id="1_glv2v"]
-[ext_resource type="Script" uid="uid://h156mlwj1qan" path="res://Main.gd" id="1_r0du0"]
+[ext_resource type="Script" uid="uid://h156mlwj1qan" path="res://Main/Main.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://c5ymabbxb5m5m" path="res://Map/Map.tscn" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://b2gu5qesimjlr" path="res://Camera/Camera.tscn" id="3_fos0i"]
 [ext_resource type="Curve3D" uid="uid://5nb48l8a787f" path="res://Tunnel/Path.tres" id="4_3dxm6"]
 
 [sub_resource type="Environment" id="Environment_faiif"]
+glow_enabled = true
 fog_light_color = Color(0.1403062, 0.6485203, 0.7623635, 1)
 fog_depth_curve = 0.11049094
 fog_depth_begin = 0.0
 fog_depth_end = 98.5
-volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0, 0.53592616, 0.89911026, 1)
 volumetric_fog_emission = Color(0.30311507, 0.6391897, 0.7404267, 1)
 volumetric_fog_emission_energy = 0.0
-adjustment_enabled = true
 
 [node name="Main" type="Node3D" unique_id=1983085931]
 script = ExtResource("1_r0du0")

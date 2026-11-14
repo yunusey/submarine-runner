@@ -1,4 +1,3 @@
 [gd_scene format=3 uid="uid://cpebljosdehsw"]
 
 [node name="Light" type="OmniLight3D" unique_id=622591551]
-shadow_enabled = true
