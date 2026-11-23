@@ -33,7 +33,7 @@ Inspirations and helpful resources that helped creation of this project.
 - [Freya Holmér - The Continuity of Splines](https://www.youtube.com/watch?v=jvPPXbo87ds)
 - [Cadoink - Fake Water Caustics Shader in Godot](https://www.youtube.com/watch?v=mnpNePu0bv0)
 - [StayAtHomeDev - How To Create a Water Depth Effect](https://www.youtube.com/watch?v=ib2atnKTLrs)
-- [Poly Haven](https://polyhaven.com/) Textures (under `External/`; EXR images were converted to PNGs, because I had some issues with Godot failing to import them):
+- [Poly Haven](https://polyhaven.com/) Textures licensed under CC0 (under `External/`; EXR images were converted to PNGs, because I had some issues with Godot failing to import them):
     - [Rusty Metal Grid Texture](https://polyhaven.com/a/rusty_metal_grid): Used in submarine's body.
     - [Blue Metal Plate Texture](https://polyhaven.com/a/blue_metal_plate): Used in submarine's radio and fan.
     - [Rock 04 Texture](https://polyhaven.com/a/rock_04): Used in obstacles.
